@@ -24,10 +24,3 @@ class Knight
     result
   end
 end
-
-k = Knight.new([0, 0])
-p k.moves
-puts "\n\n"
-
-k = Knight.new([3, 3])
-p k.moves
