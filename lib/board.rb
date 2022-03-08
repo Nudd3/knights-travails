@@ -11,18 +11,13 @@ class Board
   end
 
   def build_graph(parent)
-
     return if parent.nil?
 
-    
     create_children(parent)
-    puts "Parent: #{parent}"
-    p "Parent's Moves: #{parent.moves}"
-    puts "\n"
+
     parent.children.each do |child|
       create_children(parent)
       build_graph(child)
-
     end
   end
 
