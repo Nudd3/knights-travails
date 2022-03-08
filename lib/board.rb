@@ -32,4 +32,11 @@ class Board
       parent.children << child
     end
   end
+
+  def knight_moves(start, destination, moves = [])
+
+        
+
+  end
+
 end
