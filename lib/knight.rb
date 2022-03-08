@@ -23,4 +23,8 @@ class Knight
     end
     result
   end
+
+  def to_s
+    "Location: #{@location}"
+  end
 end

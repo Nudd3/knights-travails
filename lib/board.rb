@@ -4,24 +4,37 @@ require_relative 'knight'
 
 # board class
 class Board
+  attr_accessor :visited
 
-  @visited = []
+  def initialize
+    @visited = []
+  end
 
-  def build_graph
+  def build_graph(parent)
 
+    return if parent.nil?
+
+    
+    create_children(parent)
+    puts "Parent: #{parent}"
+    p "Parent's Moves: #{parent.moves}"
+    puts "\n"
+    parent.children.each do |child|
+      create_children(parent)
+      build_graph(child)
+
+    end
   end
 
   # Find all children to a knight(parent)
   def create_children(parent)
+    @visited << parent.location
 
     parent.possible_moves.each do |location|
-      unless @visited.include? location
-        child = Knight.new(location)
-        parent.children << child
-        visited << location
-      end
+      next if @visited.include? location
+
+      child = Knight.new(location)
+      parent.children << child
     end
   end
-
-
 end
