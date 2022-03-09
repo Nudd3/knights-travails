@@ -7,7 +7,7 @@ class Board
   attr_accessor :visited
 
   # Find all children to a knight(parent)
-  def create_children(parent)
+  def dcreate_children(parent)
 
     parent.moves.each do |location|
 
