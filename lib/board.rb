@@ -10,5 +10,4 @@ class Board
     @root = start
     @visited = []
   end
-
 end

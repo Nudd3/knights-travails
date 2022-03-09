@@ -5,10 +5,9 @@ require_relative 'board'
 
 # Game class
 class Game
-
-  def knight_moves(start, destination)
+  def knight_moves(start, _destination)
     graph = create_graph(start)
-    # Find the path
+    # Find the path (destination)
     # Display the path
   end
 
@@ -20,7 +19,4 @@ class Game
   end
 
   def show_path; end
-
-
-  
 end
