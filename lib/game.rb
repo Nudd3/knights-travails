@@ -9,8 +9,6 @@ class Game
     graph = create_graph(start)
     end_node = graph.find_path_bfs(destination)
     path = graph.find_stops(end_node)
-    path.each { |stop| p "#{stop}\n" }
-
     # Display the path
   end
 
