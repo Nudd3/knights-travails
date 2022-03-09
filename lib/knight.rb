@@ -33,7 +33,3 @@ class Knight
     "Location: #{@location}"
   end
 end
-
-k = Knight.new([0, 0])
-k.create_children
-p k.children.length

@@ -18,6 +18,8 @@ class Board
       return current if current.location == destination
 
       @visited.push(current)
+      current.create_children
+      
       current.children.each do |child|
         queue << child unless @visited.include?(child)
       end
