@@ -8,7 +8,8 @@ class Game
   def knight_moves(start, destination)
     graph = create_graph(start)
     end_node = graph.find_path_bfs(destination)
-    path = graph.find_stops(end_node)
+    stops = graph.find_stops(end_node)
+    show_path(stops)
     # Display the path
   end
 
@@ -19,5 +20,8 @@ class Game
     Board.new(start)
   end
 
-  def show_path; end
+  def show_path(stops)
+    puts "You made it in #{stops.length - 1} moves! Here's your path:"
+    stops.each { p _1 }
+  end
 end
