@@ -6,8 +6,14 @@ require_relative 'knight'
 class Board
   attr_accessor :visited
 
-  def initialize
-    @visited = []
+  # Find all children to a knight(parent)
+  def create_children(parent)
+
+    parent.possible_moves.each do |location|
+
+      child = Knight.new(location)
+      parent.children << child
+    end
   end
 
   def build_graph(parent)
@@ -21,22 +27,28 @@ class Board
     end
   end
 
-  # Find all children to a knight(parent)
-  def create_children(parent)
-    @visited << parent.location
+  def find_path(start, searched_location, path = [])
+    queue = []
+    queue << start
 
-    parent.possible_moves.each do |location|
-      next if @visited.include? location
+    until queue.empty?
+      node = queue.shift
+      path << node
+      if node.location == searched_location
+        puts "HELLO"
+        return path
+      end
 
-      child = Knight.new(location)
-      parent.children << child
+      start.children.each do |child|
+        queue << child
+      end
     end
+    return path
   end
 
-  def knight_moves(start, destination, moves = [])
-
-        
-
+  def knight_moves(start, destination)
+    @knight = Knight.new(start)
+    build_graph(@knight)
+    path = find_path(@knight, destination)
   end
-
 end
