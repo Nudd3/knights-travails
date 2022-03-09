@@ -1,7 +1,6 @@
 # frozen_string_literal: false
 
 require_relative 'knight'
-require 'pry'
 # board class
 class Board
   attr_accessor :visited
@@ -11,6 +10,8 @@ class Board
     @visited = []
   end
 
+  # Find the path from the @root to the destination using bfs
+  # returns the destination node
   def find_path_bfs(destination)
     queue = [@root]
     until queue.empty?

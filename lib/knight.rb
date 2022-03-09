@@ -4,6 +4,7 @@
 class Knight
   attr_accessor :location, :parent, :children
 
+  # All possible moves for a knight on a chess board
   ALL_MOVES = [
     [1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]
   ].freeze
@@ -14,6 +15,7 @@ class Knight
     @parent = parent
   end
 
+  # Checks what moves are possible relative to the location of the knight
   def create_children(location = @location)
     ALL_MOVES.each do |move|
       new_x = location[0] + move[0]
@@ -25,11 +27,9 @@ class Knight
     end
   end
 
+  private
+
   def add_child(coordinates)
     @children << Knight.new([coordinates[0], coordinates[1]], self)
-  end
-
-  def to_s
-    "Location: #{@location}"
   end
 end
