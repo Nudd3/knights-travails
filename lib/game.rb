@@ -22,7 +22,12 @@ class Game
 
   # Shows the coordinates that the knight has visited on the path
   def show_path(stops)
-    puts "You made it in #{stops.length - 1} moves! Here's your path:"
+    if stops.length - 1 == 1
+      puts "You made it in #{stops.length - 1} move! Here's your path:"
+    else
+      puts "You made it in #{stops.length - 1} moves! Here's your path:"
+    end
+
     stops.each { p _1 }
   end
 end
