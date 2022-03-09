@@ -6,11 +6,10 @@ class Knight
 
   def initialize(location)
     @location = location
-    @moves = possible_moves
-    @children = []
+    @children = create_children
   end
 
-  def possible_moves
+  def create_children
     all_moves = [
       [1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]
     ]
@@ -28,3 +27,6 @@ class Knight
     "Location: #{@location}"
   end
 end
+
+k = Knight.new([0,0])
+p k.children
