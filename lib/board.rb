@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
 require_relative 'knight'
-
+require 'pry'
 # board class
 class Board
   attr_accessor :visited
@@ -15,14 +15,24 @@ class Board
     queue = [@root]
     until queue.empty?
       current = queue.shift
-      return current if current.location == destination
+      break if current.location == destination
 
-      @visited.push(current)
+      @visited << current
       current.create_children
-      
-      current.children.each do |child|
-        queue << child unless @visited.include?(child)
-      end
+      current.children.each { |child| queue << child unless @visited.include?(child) }
     end
+    current
+  end
+
+  # Find what locations the knight has stopped on
+  # end_node is a knight
+  def find_stops(end_node)
+    parents = [end_node.location]
+    until end_node.parent.nil?
+      parent = end_node.parent
+      end_node = parent
+      parents << end_node.location
+    end
+    parents.reverse
   end
 end
