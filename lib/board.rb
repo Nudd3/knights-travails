@@ -6,26 +6,9 @@ require_relative 'knight'
 class Board
   attr_accessor :visited
 
-  # Find all children to a knight(parent)
-  def dcreate_children(parent)
-
-    parent.moves.each do |location|
-
-      child = Knight.new(location)
-      parent.children << child
-    end
+  def initialize(start)
+    @root = start
+    @visited = []
   end
 
-  def build_graph(start)
-
-    start = Knight.new(start)
-    start.create_children
-    
-    create_children(parent)
-
-    parent.children.each do |child|
-      create_children(parent)
-      build_graph(child)
-    end
-  end
 end
