@@ -8,7 +8,12 @@ class Game
   def knight_moves(start, destination)
     graph = create_graph(start)
     end_node = graph.find_path_bfs(destination)
-    p end_node.location
+    puts "End_node-class: #{end_node.class}"
+    puts "End_node-location: #{end_node.location}"
+    puts "End_node-parent: #{end_node.parent.to_s}"
+    path = graph.find_stops(end_node)
+    path.each { |stop| p "#{stop}\n"}
+
     # Display the path
   end
 
