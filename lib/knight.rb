@@ -2,7 +2,7 @@
 
 # Knight class.
 class Knight
-  attr_accessor :location, :moves, :children
+  attr_accessor :location, :parent, :children
 
   ALL_MOVES = [
     [1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]
